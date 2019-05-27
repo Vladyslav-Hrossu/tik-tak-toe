@@ -1,0 +1,17 @@
+#game-field{
+    display: grid;
+    grid-template-rows: 100px 100px 100px;
+    grid-template-columns: 100px 100px 100px;
+    font-size: 80px;
+    text-align: center;
+}
+#game-field > div{
+    background-color: grey;
+    border: 2px solid black;
+}
+#score-bar{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
