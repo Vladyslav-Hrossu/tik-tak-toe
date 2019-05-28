@@ -47,6 +47,7 @@ function startNewGame() {
             fieldCells[j].style.backgroundColor = 'white';
         }
     }
+    gameField.addEventListener('click', currentPlayerTurn);
 }
 
 function pushData(cell, row){
