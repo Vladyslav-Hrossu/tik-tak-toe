@@ -4,6 +4,8 @@
     justify-content: flex-start;
     font-size: 80px;
     text-align: center;
+    user-select: none;
+    margin: 0 auto 0;
 }
 #game-field > div{
     display:flex;
@@ -20,7 +22,17 @@
 }
 #score-bar{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: flex-start;
     align-items: center;
+    width: 300px;
+    margin: 25px auto;
+}
+#score-bar > button {
+    margin: 5px 0;
+    background-color: blanchedalmond;
+}
+#score-bar > div {
+    margin: 5px 0;
+    color: blue;
 }
