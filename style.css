@@ -1,13 +1,22 @@
 #game-field{
-    display: grid;
-    grid-template-rows: 100px 100px 100px;
-    grid-template-columns: 100px 100px 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
     font-size: 80px;
     text-align: center;
 }
 #game-field > div{
-    background-color: grey;
-    border: 2px solid black;
+    display:flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+#game-field > div > div{
+ width: 100px;
+ height: 100px;
+ border: 1px solid black;
+ box-sizing: border-box;
+ cursor: pointer;
 }
 #score-bar{
     display: flex;
