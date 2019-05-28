@@ -25,7 +25,6 @@ resetScoreButton.addEventListener('click', resetScore);
 window.onload = recoverGameData;
 gameField.addEventListener('click', currentPlayerTurn);
 
-
 createGameField(gameFieldSize);
 
 function createGameField(fieldSize){
@@ -159,6 +158,22 @@ function getGameData(){
         gameData[i] = localStorage.getItem(`gameData${i}`).split(',');
     }
 }
+
+function recoveredUserSet(){
+    let recoveredIcon = localStorage.getItem('icon',currentPlayer.icon);   
+    if(recoveredIcon === 'X'){
+        currentPlayer = playerOne;       
+    } else {
+        currentPlayer = playerTwo;
+    }
+}
+
+function recoveredWinStatusCheck(){
+    winStatus = +localStorage.getItem('winStatus');
+    if(winStatus){
+        gameField.removeEventListener('click', currentPlayerTurn);
+    }
+}
 function recoverGameData(){
     getGameData();
     for(let i = 0; i < gameData.length; i++){
@@ -167,16 +182,9 @@ function recoverGameData(){
             fieldCells[j].textContent = gameData[i][j];
         }
     }
-    let recoveredIcon = localStorage.getItem('icon',currentPlayer.icon);   
-    winStatus = +localStorage.getItem('winStatus');
-    if(recoveredIcon === 'X'){
-        currentPlayer = playerOne;       
-    } else {
-        currentPlayer = playerTwo;
-    }
-    if(winStatus){
-        gameField.removeEventListener('click', currentPlayerTurn);
-    }
+    player.textContent = `${currentPlayer.name}`;
+    recoveredUserSet();
+    recoveredWinStatusCheck();
     getScore();
     setScore();
 }
